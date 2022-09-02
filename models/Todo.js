@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+//TODO: change TodoSchema to MovieSchema and determine fields
 const TodoSchema = new mongoose.Schema({
   todo: {
     type: String,
