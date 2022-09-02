@@ -11,6 +11,13 @@ A Simple ToDo App is built using the MVC Architecture, we have also implemented 
 # Objectives
 
 - It's a beginner level app created to understand how MVC concept and logins are added
+- 
+- Create a Letterboxd-like app that pulls movie data from an API.
+- Thinking "The Movie DB" - https://developers.themoviedb.org/3/getting-started/introduction
+- Database will contain User model and Movie model
+- To See / Watched
+- Review of movie (stars? Comment?)
+- 
 
 ---
 
@@ -41,4 +48,22 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  
  Have fun testing and improving it! 😎
 
+## Items to work on
 
+-connect to someone's database - jamal
+-css formating to movie page - jeffrey and madison
+
+-change wording in code to be consistent- alex
+todos to movies routing
+
+-pick schema
+userid:
+title:
+image:
+description:
+cast: 
+rating: good or bad
+
+-integrate api from imdb Jim
+
+-update the ejs
