@@ -14,6 +14,9 @@ const MovieSchema = new mongoose.Schema({
   overview: {
     type: String,
   },
+  watched: {
+    type: Boolean,
+  },
   recommend: {
     type: Boolean,
   },
