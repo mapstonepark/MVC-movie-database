@@ -5,16 +5,16 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, moviesController.getMovies)
 
-router.post('/createTodo', moviesController.addMovie)
+router.post('/addMovie', moviesController.addMovie)
 
-router.put('/markComplete', moviesController.markWatched)
+router.put('/markWatched', moviesController.markWatched)
 
-router.put('/markIncomplete', moviesController.markNotWatched)
+router.put('/markNotWatched', moviesController.markNotWatched)
 
 router.put('/rateMovie', moviesController.rateMovie)
 
 router.put('/reviewMovie', moviesController.reviewMovie)
 
-router.delete('/deleteTodo', moviesController.deleteMovie)
+router.delete('/deleteMovie', moviesController.deleteMovie)
 
 module.exports = router
