@@ -62,7 +62,7 @@ exports.rateMovie = async (req, res) => {
 
 exports.reviewMovie = async (req,res) => {
 try{
-  await Movie.fin dOneAndUpdate({_id: r  eq.body.mo vieIdFromJSFile}, {
+  await Movie.findOneAndUpdate({_id: req.body.movieIdFromJSFile}, {
     review: req.body.movieReview
   })
 }catch(err){
@@ -70,11 +70,11 @@ try{
 }
 }
 
-exports.deleteMovie =a    ync (req,   res >{        console.log(req.body.movieIdFromJSFile)
+exports.deleteMovie = async (req,res) => {        console.log(req.body.movieIdFromJSFile)
   try {
     await Movie.findOneAndDelete({ _id: req.body.movieIdFromJSFile })
        onsole.log('Deleted Movie')
-       re s.jso n('Deleted Movie')
+       res.json('Deleted Movie')
     } catch (err) {
       console.log(err)
   }
