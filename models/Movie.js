@@ -11,9 +11,6 @@ const MovieSchema = new mongoose.Schema({
   releaseDate: {
     type: String,
   },
-  overview: {
-    type: String,
-  },
   watched: {
     type: Boolean,
   },
