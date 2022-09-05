@@ -5,6 +5,9 @@ const MovieSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  movieId: {
+    type: String,
+  },
   poster: {
     type: String,
   },

@@ -73,7 +73,7 @@ try{
 exports.deleteMovie = async (req,res) => {        console.log(req.body.movieIdFromJSFile)
   try {
     await Movie.findOneAndDelete({ _id: req.body.movieIdFromJSFile })
-       onsole.log('Deleted Movie')
+       console.log('Deleted Movie')
        res.json('Deleted Movie')
     } catch (err) {
       console.log(err)

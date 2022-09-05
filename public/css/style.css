@@ -29,3 +29,9 @@ a.visited {
 .not{
     text-decoration: underline;
 }
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

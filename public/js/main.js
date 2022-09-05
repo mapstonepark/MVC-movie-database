@@ -1,122 +1,83 @@
-const deleteBtn = document.querySelectorAll('.del')
-const movieItems = document.querySelectorAll('span.not')
-const movieComplete = document.querySelectorAll('span.completed')
+const Movie = require('../models/Movie')
 
-Array.from(deleteBtn).forEach((el) => {
-  el.addEventListener('click', deleteMovie)
-})
 
-Array.from(movieItems).forEach((el) => {
-  el.addEventListener('click', markWatched)
-})
-
-Array.from(movieComplete).forEach((el) => {
-  el.addEventListener('click', markNotWatched)
-})
-
-async function deleteTodo() {
-  const todoId = this.parentNode.dataset.id
+exports.getMovies = async (req, res) => {
+  console.log(req.user)
   try {
-    const response = await fetch('todos/deleteTodo', {
-      method: 'delete',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        'todoIdFromJSFile': todoId
-      })
-    })
-    const data = await response.json()
-    console.log(data)
-    location.reload()
-  } catch (err) {
-    console.log(err)
-  }
-}
-document.querySelector('#searchMovies').addEventListener('click', searchMovies)
-
-function searchMovies() {
-  const choice = document.querySelector('#movieSearch').value
-  console.log(choice)
-
-  const url = `https://imdb-api.com/en/API/SearchMovie/k_c1iz78p7/${choice}`
-
-  fetch(url)
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-      console.log(data)
-      data.results.forEach(obj => {
-        const li = document.createElement('li')
-        let pic = document.createElement("img")
-        let addButton = document.createElement("button")
-        li.textContent = `${obj.title} ${obj.description}`
-        pic.src = `${obj.image}`
-        addButton.innerText = 'Add This Movie!'
-        // console.log(li)
-        // console.log(pic)
-        console.log(addButton)
-        document.querySelector("ul").appendChild(li).appendChild(addButton).appendChild(pic)
-        // document.querySelector("li").appendChild(addSign)
-      })
-
-    })
-    .catch(err => {
-      console.log(`error ${err}`)
-    });
-}
-
-async function deleteMovie() {
-  const todoId = this.parentNode.dataset.id
-  try {
-    const response = await fetch('movies/deleteMovie', {
-      method: 'delete',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        'movieIdFromJSFile': movieId
-      })
-    })
-    const data = await response.json()
-    console.log(data)
-    location.reload()
+    const userMovies = await Movie.find({ userId: req.user.id })
+    // following lines not needed currently unless we want to list the number of movies a user has selected  
+    // const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
+    // old res.render with itemsLeft as passed value in case needed in future
+    // res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
+    res.render('movies.ejs', { movies: userMovies, user: req.user })
   } catch (err) {
     console.log(err)
   }
 }
 
-
-async function markWatched() {
-  const todoId = this.parentNode.dataset.id
+exports.addMovie = async (req, res) => {
   try {
-    const response = await fetch('movies/markComplete', {
-      method: 'put',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        'movieIdFromJSFile': movieId
-      })
-    })
-    const data = await response.json()
-    console.log(data)
-    location.reload()
+    await Movie.create({ title: req.body.movieTitle, poster: req.body.moviePoster, release: req.body.releaseDate, overview: req.body.movieOverview, watched: req.body.movieWatched, recommend: req.body.movieRecommend, rating: req.body.movieRating, review: req.body.movieReview, userId: req.user.id })
+    console.log('Movie has been added!')
+    res.redirect('/movies')
   } catch (err) {
     console.log(err)
   }
 }
 
-async function markNotWatched() {
-  const todoId = this.parentNode.dataset.id
+exports.markWatched = async (req, res) => {
   try {
-    const response = await fetch('movie/markNotWatched', {
-      method: 'put',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify({
-        'movieIdFromJSFile': movieId
-      })
+    await Movie.findOneAndUpdate({ _id: req.body.movieIdFromJSFile }, {
+      watched: true
     })
-    const data = await response.json()
-    console.log(data)
-    location.reload()
+    console.log('Marked Watched')
+    res.json('Marked Watched')
   } catch (err) {
     console.log(err)
   }
 }
 
-//Formatting Code
+exports.markNotWatched = async (req, res) => {
+  try {
+    await Movie.findOneAndUpdate({ _id: req.body.movieIdFromJSFile }, {
+      watched: false
+    })
+    console.log('Marked Not Watched')
+    res.json('Marked Not Watched')
+  } catch (err) {
+    console.log(err)
+  }
+}
 
+exports.rateMovie = async (req, res) => {
+  try {
+    await Movie.findOneAndUpdate({ _id: req.body.movieIdFromJSFile }, {
+      rating: red.body.movieRating
+    })
+    console.log('Movie Rating Updated')
+    res.json('Movie Rating Updated')
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+exports.reviewMovie = async (req, res) => {
+  try {
+    await Movie.findOneAndUpdate({ _id: req.body.movieIdFromJSFile }, {
+      review: req.body.movieReview
+    })
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+exports.deleteMovie = async (req, res) => {
+  console.log(req.body.movieIdFromJSFile)
+  try {
+    await Movie.findOneAndDelete({ _id: req.body.movieIdFromJSFile })
+    console.log('Deleted Movie')
+    res.json('Deleted Movie')
+  } catch (err) {
+    console.log(err)
+  }
+}
