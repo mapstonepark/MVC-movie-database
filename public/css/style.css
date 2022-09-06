@@ -35,3 +35,32 @@ img {
   margin-right: auto;
   width: 50%;
 }
+.poster{
+  width: 200px;
+}
+.yourMovies {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.movieLi {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 25px;
+  gap: 5px;
+  border: 1px solid black;
+}
+
+.movieItem {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 25px;
+  gap: 5px;
+  border: 1px solid black;
+}
