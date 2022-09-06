@@ -19,12 +19,29 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
 
+    <div class="row contact-content">
+
+        <div class="col-seven tab-full animate-this">
+
+            <h5>Login</h5>
+
+            <form action="/login" method="POST">
+                <div class="form-field">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+
+                <div class="form-field">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="form-field">
+                    <input type="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+    
     <footer>
         <%- include('../partials/footer'); %>
     </footer>
