@@ -17,7 +17,7 @@ exports.getMovies = async (req, res) => {
 
 exports.addMovie = async (req, res) => {
   try {
-    await Movie.create({ title: req.body.movieTitle, poster: req.body.moviePoster, release: req.body.releaseDate, overview: req.body.movieOverview, watched: req.body.movieWatched, recommend: req.body.movieRecommend, rating: req.body.movieRating, review: req.body.movieReview, userId: req.user.id })
+    await Movie.create({ title: req.body.movieTitle, movieId: req.body.movieId, image: req.body.movieImage, watched: false, recommend: false, userId: req.user.id })
     console.log('Movie has been added!')
     res.redirect('/movies')
   } catch (err) {
@@ -56,26 +56,28 @@ exports.rateMovie = async (req, res) => {
     })
     console.log('Movie Rating Updated')
     res.json('Movie Rating Updated')
-  } catch( err) {     console.log(err)
+  } catch (err) {
+    console.log(err)
   }
 }
 
-exports.reviewMovie = async (req,res) => {
-try{
-  await Movie.findOneAndUpdate({_id: req.body.movieIdFromJSFile}, {
-    review: req.body.movieReview
-  })
-}catch(err){
-  console.log(err)
-}
+exports.reviewMovie = async (req, res) => {
+  try {
+    await Movie.findOneAndUpdate({ _id: req.body.movieIdFromJSFile }, {
+      review: req.body.movieReview
+    })
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-exports.deleteMovie = async (req,res) => {        console.log(req.body.movieIdFromJSFile)
+exports.deleteMovie = async (req, res) => {
+  console.log(req.body.movieIdFromJSFile)
   try {
     await Movie.findOneAndDelete({ _id: req.body.movieIdFromJSFile })
-       onsole.log('Deleted Movie')
-       res.json('Deleted Movie')
-    } catch (err) {
-      console.log(err)
+    console.log('Deleted Movie')
+    res.json('Deleted Movie')
+  } catch (err) {
+    console.log(err)
   }
 }
