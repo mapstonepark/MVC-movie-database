@@ -1,23 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Personal Movie Database</title>
-</head>
+    <head>
+        <%- include('../partials/head'); %>
+    </head>
 <body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <div class="intro-wrap">
+
+        <div class="row narrow section-intro with-bottom-sep animate-this">
+            <div class="col-twelve">
+                <h1>Signup</h1>  			
+                <!-- <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>	   			 -->
+            </div>   		
+        </div> 		
+     </div>
+
+
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
+
+    <div class="row contact-content">
+
+        <div class="col-seven tab-full animate-this">
+
+            <h5>Signup</h5>
+
+                <form action="/signup" method="POST">
+                    <div class="form-field">
+                    <input type="text" name="userName" placeholder="User Name">
+                    </div>
+
+                    <div class="form-field">
+                    <input type="email" name="email" placeholder="Email">
+                    </div>
+
+                    <div class="form-field">
+                    <input type="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="form-field">
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                    </div>
+
+                    <div class="form-field">
+                    <input type="submit">
+                    </div>
+                </form>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
 </body>
 </html>

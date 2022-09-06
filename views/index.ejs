@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Movie Database</title>
-</head>
+    <head>
+        <%- include('../partials/head'); %>
+    </head>
+      
 <body>
-    <h1>Personal Movie Database</h1>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    
+    <div class="intro-wrap">
+
+        <div class="row narrow section-intro with-bottom-sep animate-this">
+            <div class="col-twelve">
+                <h1>Personal Movie Database</h1> 			
+                <!-- <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>	   			 -->
+            </div>   		
+        </div> 
+    </div>
+    
     <a href="/login"> Login</a>
     <a href="/signup"> Signup</a>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
 </body>
 </html>
