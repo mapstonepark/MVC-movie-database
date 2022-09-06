@@ -8,20 +8,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Movies</h1>
-    <ul>
+    <h1>Your Movies</h1>
+    <ul class='yourMovies'>
     <% movies.forEach( el => { %>
             <li class='movieItem' data-id='<%=el._id%>'>
                 <span class='<%= el.watched === true ? 'completed' : 'not'%>'><%= el.title %></span>
+                <img class='poster' src='<%= el.image %>'/>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
     </ul>
 
-    <form action="/movies/addMovie" method='POST'>
+<!--     <form action="/movies/addMovie" method='POST'>
         <input type="text" placeholder="Enter Movie Title" name='movieTitle'>
         <input type="submit">
-    </form>
+    </form> -->
+  <h2>Search for Movies to add to your watchlist</h2>
    <input id="movieSearch" type="text"/>
   <button id="searchMovies">Search for movies</button>
     <a href="/logout">Logout</a>
