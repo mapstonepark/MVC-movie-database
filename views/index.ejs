@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <%- include('../partials/head'); %>
+        <%- include('partials/head'); %>
     </head>
       
-<body>
+<body class="is-preload">
+	<div id="page-wrapper">
+
     <header>
-        <%- include('../partials/header'); %>
+        <%- include('partials/header'); %>
     </header>
-    
-    <div class="intro-wrap">
 
-        <div class="row narrow section-intro with-bottom-sep animate-this">
-            <div class="col-twelve">
-                <h1>Personal Movie Database</h1> 			
-                <!-- <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>	   			 -->
-            </div>   		
-        </div> 
-    </div>
+    <section class="wrapper style1">
+        <div class="container">
+            <div id="content">
     
-    <a href="/login"> Login</a>
-    <a href="/signup"> Signup</a>
+                <article>
+                    <header>
+                        <h2>Personal Movie Database</h2>
+                        <p>Customizable movie tracker without all of the fuss.</p>
+                    </header> 
 
+    				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+
+                    <a class="button" href="/login">Login</a>
+                    <a class="button" href="/signup">Signup</a>
+                    <a class="button" href="/movies">Movies</a>
+                </article>
+            </div>
+        </div>
+    </section>
+    			
     <footer>
-        <%- include('../partials/footer'); %>
+        <%- include('partials/footer'); %>
     </footer>
+  
 </body>
 </html>
