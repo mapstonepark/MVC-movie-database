@@ -1,65 +1,58 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <%- include('partials/head'); %>
     </head>
       
-<body class="is-preload">
-	<div id="page-wrapper">
-
+<body id="top">
     <header>
         <%- include('partials/header'); %>
     </header>
 
-    <section class="wrapper style1">
-        <div class="container">
-            <div id="content">
-    
-                <article>
-                    <header>
-                        <h2>Personal Movie Database</h2>
-                        <p>Customizable movie tracker without all of the fuss.</p>
-                    </header> 
+   	<div class="overlay"></div>
+  
+    <div class="intro-wrap">
 
-    				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+        <div class="row narrow section-intro with-bottom-sep animate-this">
+            <div class="col-twelve">
+                <h1>Login</h1>  			
+                <!-- <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>	   			 -->
+            </div>   		
+        </div>  		
+    </div>
 
+    <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+    <% if (locals.messages.info) { %>
+        <% messages.info.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
 
-                    <% if (locals.messages.errors) { %>
-                        <% messages.errors.forEach( el => { %>
-                            <div class="alert alert-danger"><%= el.msg %></div>
-                        <% }) %>    
-                    <% } %>
-                    <% if (locals.messages.info) { %>
-                        <% messages.info.forEach( el => { %>
-                            <div class="alert alert-danger"><%= el.msg %></div>
-                        <% }) %>    
-                    <% } %>
+    <div class="row contact-content">
 
-                    <section class="col-6 col-12-narrower">
-                        <h5>Login</h5>
-                        
-                        <form action="/login" method="POST">
-                            <div class="row gtr-50">
-                                <div class="form-field col-6 col-12-mobilep">
-                                    <input type="email" name="email" placeholder="Email">
-                                </div>
-                                <div class="form-field col-6 col-12-mobilep">
-                                    <input type="password" name="password" placeholder="Password">
-                                </div>
-                                <div class="form-field col-12">
-                                    <ul class="actions">
-                                        <li><input type="submit" class="button alt"/></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-                </article>
+        <div class="col-seven tab-full animate-this">
 
-            </div>
+            <h5>Login</h5>
+
+            <form action="/login" method="POST">
+                <div class="form-field">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+
+                <div class="form-field">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="form-field">
+                    <input type="submit">
+                </div>
+            </form>
         </div>
-    </section>
-
+    </div>
 
     <footer>
         <%- include('partials/footer'); %>

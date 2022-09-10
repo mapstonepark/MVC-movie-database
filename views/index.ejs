@@ -4,33 +4,41 @@
         <%- include('partials/head'); %>
     </head>
       
-<body class="is-preload">
-	<div id="page-wrapper">
-
+<body id="top">
     <header>
         <%- include('partials/header'); %>
     </header>
 
-    <section class="wrapper style1">
-        <div class="container">
-            <div id="content">
+   	<div class="overlay"></div>
     
-                <article>
-                    <header>
-                        <h2>Personal Movie Database</h2>
-                        <p>Customizable movie tracker without all of the fuss.</p>
-                    </header> 
-
-    				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-
-                    <a class="button" href="/login">Login</a>
-                    <a class="button" href="/signup">Signup</a>
-                    <a class="button" href="/movies">Movies</a>
-                </article>
-            </div>
-        </div>
-    </section>
-    			
+      <div class="home-content-table">	
+    		   <div class="home-content-tablecell">
+    		   	<div class="row">
+    		   		<div class="col-twelve">		   			
+    			  		
+    			  				<h3 class="animate-intro">PMD</h3>
+    				  			<h1 class="animate-intro">
+    							Personal Movie  <br>
+    							Database.
+    				  			</h1>	
+    
+    				  			<div class="more animate-intro">
+    				  				<a class="smoothscroll button stroke" href="/login">
+    				  					Login
+    				  				</a>
+                      <a class="smoothscroll button stroke" href="/signup">
+    				  					Signup
+    				  				</a>
+                      <a class="smoothscroll button stroke" href="/movies">
+    				  					Movies
+    				  				</a>
+    				  			</div>							
+    
+    			  		</div> <!-- end col-twelve --> 
+    		   	</div> <!-- end row --> 
+    		   </div> <!-- end home-content-tablecell --> 		   
+    		</div> <!-- end home-content-table -->
+  
     <footer>
         <%- include('partials/footer'); %>
     </footer>

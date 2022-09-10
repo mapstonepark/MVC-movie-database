@@ -3,57 +3,44 @@
     <head>
         <%- include('partials/head'); %>
     </head>
-      
-<body class="is-preload">
-	<div id="page-wrapper">
-
+  
+<body id="top">
     <header>
         <%- include('partials/header'); %>
     </header>
-
-    <section class="wrapper style1">
-        <div class="container">
-            <div id="content">
     
-                <article>
-                    <header>
-                        <h2>Personal Movie Database</h2>
-                        <p>Customizable movie tracker without all of the fuss.</p>
-                    </header> 
+    <div class="intro-wrap">
 
-    				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+        <div class="row narrow section-intro with-bottom-sep animate-this">
+            <div class="col-twelve">
+                <h1>Movies</h1>  			
+                <!-- <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>	   			 -->
+            </div>   		
+        </div>		
+    </div>
 
-                    <section class="col-6 col-12-narrower">
-                        <ul class='movieList'>
-                        <% movies.forEach( el => { %>
-                                <li class='movieItem' data-id='<%=el._id%>'>
-                                    <span class='<%= el.watched === true ? 'completed' : 'not'%>'><%= el.title %></span>
-                                    <img class='poster' src='<%= el.image %>'/>
-                                    <span class='del'> Delete </span>
-                                </li>
-                        <% }) %>
-                        </ul>
-                    </section>
 
-                <!--<form action="/movies/addMovie" method='POST'>
-                    <input type="text" placeholder="Enter Movie Title" name='movieTitle'>
-                    <input type="submit">
-                    </form> -->
+    <ul class='movieList'>
+    <% movies.forEach( el => { %>
+            <li class='movieItem' data-id='<%=el._id%>'>
+                <span class='<%= el.watched === true ? 'completed' : 'not'%>'><%= el.title %></span>
+                <img class='poster' src='<%= el.image %>'/>
+                <span class='del'> Delete </span>
+            </li>
+    <% }) %>
+    </ul>
 
-                    <section class="col-6 col-12-narrower">
-                        <h2>Search for Movies to add to your watchlist</h2>
+<!--     <form action="/movies/addMovie" method='POST'>
+        <input type="text" placeholder="Enter Movie Title" name='movieTitle'>
+        <input type="submit">
+    </form> -->
 
-                        <ul class="actions">
-                            <input id="movieSearch" type="text"/>
-                            <button id="searchMovies" class="button">Search for movies</button>
-                                <a href="/logout">Logout</a>
-                                <ul></ul>
-                        </ul>
-                    </section>
-                </article>
-            </div>
-        </div>
-    </section>
+      
+  <h2>Search for Movies to add to your watchlist</h2>
+   <input id="movieSearch" type="text"/>
+  <button id="searchMovies">Search for movies</button>
+    <a href="/logout">Logout</a>
+      <ul></ul>
     
     <footer>
         <%- include('partials/footer'); %>

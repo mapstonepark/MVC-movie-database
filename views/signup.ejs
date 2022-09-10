@@ -3,64 +3,59 @@
     <head>
         <%- include('partials/head'); %>
     </head>
-      
-<body class="is-preload">
-	<div id="page-wrapper">
-
+  
+<body id="top">
     <header>
         <%- include('partials/header'); %>
     </header>
 
-    <section class="wrapper style1">
-        <div class="container">
-            <div id="content">
-    
-                <article>
-                    <header>
-                        <h2>Personal Movie Database</h2>
-                        <p>Customizable movie tracker without all of the fuss.</p>
-                    </header> 
+    <div class="intro-wrap">
 
-    				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+        <div class="row narrow section-intro with-bottom-sep animate-this">
+            <div class="col-twelve">
+                <h1>Signup</h1>  			
+                <!-- <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>	   			 -->
+            </div>   		
+        </div> 		
+     </div>
 
 
-                    <% if (locals.messages.errors) { %>
-                        <% messages.errors.forEach( el => { %>
-                            <div class="alert alert-danger"><%= el.msg %></div>
-                        <% }) %>    
-                    <% } %>
+    <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
 
-                    <section class="col-6 col-12-narrower">
-                        <h5>Signup</h5>
+    <div class="row contact-content">
 
-                        <form action="/signup" method="POST">
-                            <div class="row gtr-50">
-                                <div class="form-field col-6 col-12-mobilep">
-                                <input type="text" name="userName" placeholder="User Name">
-                                </div>
+        <div class="col-seven tab-full animate-this">
 
-                                <div class="form-field col-6 col-12-mobilep">
-                                <input type="email" name="email" placeholder="Email">
-                                </div>
+            <h5>Signup</h5>
 
-                                <div class="form-field col-6 col-12-mobilep">
-                                <input type="password" name="password" placeholder="Password">
-                                </div>
+                <form action="/signup" method="POST">
+                    <div class="form-field">
+                    <input type="text" name="userName" placeholder="User Name">
+                    </div>
 
-                                <div class="form-field col-6 col-12-mobilep">
-                                <input type="password" name="confirmPassword" placeholder="Confirm Password">
-                                </div>
+                    <div class="form-field">
+                    <input type="email" name="email" placeholder="Email">
+                    </div>
 
-                                <div class="form-field col-12">
-                                <input type="submit" class="button alt">
-                                </div>
-                            </div>
-                        </form>
-                    </section>
-                </article>
+                    <div class="form-field">
+                    <input type="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="form-field">
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password">
+                    </div>
+
+                    <div class="form-field">
+                    <input type="submit">
+                    </div>
+                </form>
 
     <footer>
-        <%- include('../partials/footer'); %>
+        <%- include('partials/footer'); %>
     </footer>
 </body>
 </html>

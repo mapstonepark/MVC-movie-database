@@ -1,57 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <%- include('partials/head'); %>
-    </head>
-      
-<body class="is-preload">
-	<div id="page-wrapper">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+  
+<body id="top">
+    <h1>Todos</h1>
+    <ul>
+    <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                <span class='del'> Delete </span>
+            </li>
+    <% }) %>    
+    </ul>
 
-    <header>
-        <%- include('partials/header'); %>
-    </header>
+    <form action="/movies/createMovie" method='POST'>
+        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <input type="submit">
+    </form>
 
-    <section class="wrapper style1">
-        <div class="container">
-            <div id="content">
-    
-                <article>
-                    <header>
-                        <h2>Personal Movie Database</h2>
-                        <p>Customizable movie tracker without all of the fuss.</p>
-                    </header> 
+    <a href="/logout">Logout</a>
 
-    				<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
-
-                    <section class="col-6 col-12-narrower">
-                        <h1>Todos</h1>
-                        <ul>
-                        <% todos.forEach( el => { %>
-                                <li class='todoItem' data-id='<%=el._id%>'>
-                                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                                    <span class='del'> Delete </span>
-                                </li>
-                        <% }) %>    
-                        </ul>
-                    </section>
-
-                        <form action="/movies/createMovie" method='POST'>
-                            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-                            <input type="submit" class="button alt">
-                        </form>
-
-                        <div class="form-field col-12">
-                            <ul class="actions">
-                                <li><a href="/logout">Logout</a></li>
-                            </ul>
-                        </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <%- include('../partials/footer'); %>
-    </footer>
 </body>
 </html>
